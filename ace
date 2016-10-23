@@ -1,4 +1,6 @@
-#!/usr/bin/env node --harmony_proxies
+#!/bin/sh 
+":" //# comment; exec /usr/bin/env node --harmony_proxies "$0" "$@"
+
 'use strict'
 /*
 |--------------------------------------------------------------------------
