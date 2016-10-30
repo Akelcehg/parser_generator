@@ -23,7 +23,7 @@ class Page {
     let phInstance;
     let that = this;
 
-    phantom.create()
+    return phantom.create()
       .then(instance => {
         phInstance = instance;
         return instance.createPage();
@@ -37,16 +37,18 @@ class Page {
         return sitepage.property('content');
       })
       .then(content => {
-
-        that.page_content = content
         sitepage.close();
         phInstance.exit();
+        that.page_content = content
+        return true
       })
       .catch(error => {
         console.log(error);
         phInstance.exit();
       });
+
   }
+
 
 }
 

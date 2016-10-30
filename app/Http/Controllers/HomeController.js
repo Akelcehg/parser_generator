@@ -7,12 +7,10 @@ class HomeController {
 
   * index(request, response) {
 
-    let webPage = new Page('https://auto.ria.com/auto_opel_insignia_15211193.html')
+    let webPage = new Page('https://auto.ria.com/auto_volkswagen_touran_18438999.html')
 
-    const con = yield webPage.getPageContent()
-
-    yield this.save(con)
-
+    yield webPage.getPageContent()
+    yield this.save(webPage.getContent())
     yield response.sendView('home/index')
   }
 
